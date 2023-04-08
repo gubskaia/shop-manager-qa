@@ -73,43 +73,4 @@ public class ShopServiceImpl implements ShopService {
                 .filter(shop -> shop.getOpenTime().isAfter(currentTime) || shop.getCloseTime().isBefore(currentTime))
                 .collect(Collectors.toList());
     }
-
-    /*@Override
-    public List<ShopDto> getShopsByFilter(Long streetId, Long cityId, Integer open) {
-        List<Shop> shops = repo.findAll();
-        LocalTime currentTime = LocalTime.now();
-        if(streetId != null) {
-            shops = shops.stream()
-                    .filter(shop -> shop.getStreet().getId().equals(streetId))
-                    .collect(Collectors.toList());
-        }
-        if (cityId != null) {
-            shops = shops.stream()
-                    .filter(shop -> shop.getCity().getId().equals(cityId))
-                    .collect(Collectors.toList());
-        }
-        if (open != null && open == 1) {
-            shops = shops.stream()
-                    .filter(shop -> shop.getOpenTime().isBefore(currentTime) && shop.getCloseTime().isAfter(currentTime))
-                    .collect(Collectors.toList());
-        }
-        if (open != null && open == 0) {
-            shops = shops.stream()
-                    .filter(shop -> shop.getOpenTime().isAfter(currentTime) || shop.getCloseTime().isBefore(currentTime))
-                    .collect(Collectors.toList());
-        }
-        return mapper.map(shops);
-    }*/
-
-  /*  @Override
-    public List<ShopDto> getAlByStreetName(String name) {
-        return mapper.map(repo.getShopsByStreet_Name(name));
-    }
-
-    @Override
-    public List<ShopDto> getAlByCityName(String name) {
-        return mapper.map(repo.getShopsByCity_Name(name));
-    }*/
-
-
 }
